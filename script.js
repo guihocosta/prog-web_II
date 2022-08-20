@@ -1,43 +1,43 @@
-document.addEventListener("DOMContentLoaded", insereSumario) 
+document.addEventListener("DOMContentLoaded", f_insereSumario) 
 
-function insereSumario(){
+function f_insereSumario(){
 	const ol = document.createElement('ol')
 	ol.id = 'sumário'
 	document.body.prepend(ol)
 	const secoes = document.querySelectorAll('h2')
 	for(let i=0; i<secoes.length; i++) {
-		const li = criarItem(`#sec${i+1}`, secoes[i].textContent)
+		const li = f_criarItem(`#sec${i+1}`, secoes[i].textContent)
 		ol.appendChild(li) 
-		alterarH2(secoes[i], i+1) 
+		f_alterarH2(secoes[i], i+1) 
 	}
 }
 
-function alterarH2(elem, secnum){ 
-	inserirNumero(elem, secnum)
+function f_alterarH2(elem, secnum){ 
+	f_inserirNumero(elem, secnum)
 	elem.id = `sec${secnum}`
-	const voltar = criarLink('#', 'voltar') 
-	inserirDepois(elem, voltar)
+	const voltar = f_criarLink('#', 'voltar') 
+	f_inserirDepois(elem, voltar)
 }
 
-function criarItem(href, texto){
+function f_criarItem(href, conteudo){
 	const li = document.createElement('li')
-	const linque = criarLink(href,texto)
+	const linque = f_criarLink(href,conteudo)
 	li.appendChild(linque)
 	return li
 }
 
-function inserirNumero(elem, numero) {
+function f_inserirNumero(elem, numero) {
 	elem.textContent = `${numero}. ${elem.textContent}`
 }
 
-function criarLink(href, texto) {
+function f_criarLink(href, conteudo) {
 	const linque = document.createElement('a') 
 	linque.setAttribute('href', href) 
-	linque.textContent = texto
+	linque.textContent = conteudo
 	return linque 
 }
 	
-function inserirDepois(de, elem) {
+function f_inserirDepois(de, elem) {
 	const proximoIrmao = de.nextElementSibling;
 	de.parentElement.insertBefore(elem,proximoIrmao)
 }
