@@ -38,6 +38,6 @@ function f_criarLink(href, conteudo) {
 }
 	
 function f_inserirDepois(de, elem) {
-	const proximoIrmao = de.nextElementSibling;
-	de.parentElement.insertBefore(elem,proximoIrmao)
+	const nextElem = de.nextElementSibling;
+	de.parentElement.insertBefore(elem,nextElem)
 }
