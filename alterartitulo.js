@@ -25,20 +25,17 @@ function f_criaBotao() {
     titulo.parentNode.insertBefore(br, titulo.nextSibling)
     titulo.parentNode.insertBefore(botaoMenos, titulo.nextSibling)
     titulo.parentNode.insertBefore(botaoMais, titulo.nextSibling)
+
+    botaoMais.addEventListener('click', function() {
+        if (tam < 5) {
+            tam += 0.5
+        } 
+        titulo.style.fontSize = `${tam}em`
+    })
+    botaoMenos.addEventListener('click', function() { 
+        if (tam > 2) {
+            tam -= 0.5
+        }
+        titulo.style.fontSize = `${tam}em`
+    })
 } 
-
-const botaoMais = document.querySelector('#botaomais') 
-const botaoMenos = document.querySelector('#botaomenos') 
-
-botaoMais.addEventListener('click', function() {
-    if (tam < 5) {
-        tam += 0.5
-    } 
-    titulo.style.fontSize = `${tam}em`
-})
-botaoMenos.addEventListener('click', function() { 
-    if (tam > 2) {
-        tam -= 0.5
-    }
-    titulo.style.fontSize = `${tam}em`
-})
