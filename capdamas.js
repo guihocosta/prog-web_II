@@ -57,9 +57,9 @@ function criaPeca(cor,ide) {
 
 function dragstart(){
 	document.addEventListener("dragstart", function(event) {
-	  event.dataTransfer.setData("Text", event.target.id);
-	  localAtual = event.path[1].id.toString();
-	  classe = event.path[0].className;
+		event.dataTransfer.setData("Text", event.target.id);
+		localAtual = event.path[1].id.toString();
+		classe = event.path[0].className;
 	});
 }
 
@@ -70,7 +70,7 @@ function dragend() {
 
 function dragover() {
 	document.addEventListener("dragover", function(event) {
-	  event.preventDefault();
+		event.preventDefault();
 	});
 }
 
@@ -102,11 +102,11 @@ function drop(){
 			pecaCapturada = captura.firstElementChild;
 		}
 		if (t == '0' && ya != yf){
-			if (classe == 'red' && ya > yf && ya - yf == 1 && jogada % 2 == 0 || ya - yf == 2 && classeCapturada == "black" && jogada % 2 == 0 || classe == 'black' && ya < yf && ya - yf == -1 && jogada % 2 == 1 || ya - yf == -2 && classeCapturada == "red" && jogada % 2 == 1) {
+			if (classe == 'red' && ya > yf && ya - yf == 1 && jogada % 2 == 0 || 
+			ya - yf == 2 && classeCapturada == "black" && jogada % 2 == 0 || 
+			classe == 'black' && ya < yf && ya - yf == -1 && jogada % 2 == 1 || 
+			ya - yf == -2 && classeCapturada == "red" && jogada % 2 == 1) {
 				event.target.appendChild(document.getElementById(data));
-				if (classe == 'red' && yf == '0' || classe == 'black' && yf == '7'){
-					pecaRainha(classe,yf,xf);
-				}
 				jogada += 1;
 				if(ya - yf == 2 || ya - yf == -2) {
 					pecaCapturada.remove();
@@ -118,26 +118,6 @@ function drop(){
 		
 	}
 	});
-}
-function pecaRainha(classe, yf, xf){
-	local = xf + '-' + yf;
-	sub = document.getElementById(local);
-	pe = sub.firstElementChild;
-	addId = pe.id;
-	addClass = pe.className;
-	let imagem = document.createElement('img');
-	if (classe == "red") {
-		imagem.setAttribute('src', 'img/redKing.jpeg');
-	} else {
-		imagem.setAttribute('src', 'img/blackKing.jpeg');
-	}
-	imagem.setAttribute('width', `${tamanhoCelula-4}px`);
-	imagem.setAttribute('height', `${tamanhoCelula-4}px`);
-	imagem.setAttribute('draggable','true');
-	imagem.setAttribute('id', addId);
-	imagem.setAttribute('class', `${addClass}King`);
-	pe.remove();
-	sub.append(imagem);
 }
 dragstart();
 dragend();
