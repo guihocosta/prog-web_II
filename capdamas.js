@@ -111,7 +111,7 @@ function drop(){
 				if(ya - yf == 2 || ya - yf == -2) {
 					pecaCapturada.remove();
 					pecaCapturada = '';
-					lasseCapturada = '';
+					classeCapturada = '';
 				}
 			}
 		}
