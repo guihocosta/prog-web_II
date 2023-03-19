@@ -1,2 +1,2 @@
 # progweb-2
-Neste repositório estarei postando as atividades de Prog Web II 
+Este repositório foi criado para as atividades de PROG  WEB II
